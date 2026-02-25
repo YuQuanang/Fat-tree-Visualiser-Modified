@@ -11,16 +11,24 @@
 <div class="control">
     <form>
         <ul>
-            <li><span class="f">Tree Depth</span> <input type="text" name="depth" value="3"/></li>
-            <li><span class="f">Ports per Switch</span> <input type="text" name="width" value="16"/></li>
+            <li><span class="f">Topology</span> <span id="nstage"></span></li>
+            <li><span class="f">Radix (K)</span> <input type="text" name="width" value="16"/></li>
+            <li><span class="f">AB Count</span> <input type="text" name="abCount" value="8"/></li>
+            <li><span class="f">Core Switches</span> <input type="text" name="coreCount" value="8"/></li>
+            <li><span class="f">Split-Core Span</span> <input type="text" name="splitSpan" value="2"/></li>
+            <li><span class="f">Link Speed (Gbps)</span> <input type="text" name="linkSpeed" value="400"/></li>
+            <li><span class="f">Rails</span> <input type="text" name="rails" value="8"/></li>
+            <li><span class="f">Rail Layout</span> <input type="checkbox" name="railLayout"/></li>
+            <li><span class="f">ABs</span> <span id="nab"></span></li>
             <li><span class="f">Hosts</span> <span id="nhost"></span></li>
             <li><span class="f">Switches</span> <span id="nswitch"></span></li>
             <li><span class="f">Cables</span> <span id="ncable"></span></li>
             <li><span class="f">Transmitters</span> <span id="ntx"></span></li>
             <li><span class="f">Switch Tx's</span> <span id="nswtx"></span></li>
+            <li><span class="f">Bisection BW</span> <span id="nbisect"></span></li>
         </ul>
     </form>
-    <div class="comment">Fat Tree Visualizer <br/> by <a href="http://cseweb.ucsd.edu/~h8liu">He "Lonnie" Liu</a></div>
+    <div class="comment">Fat Tree Visualizer <br/> by <a href="http://cseweb.ucsd.edu/~h8liu">He "Lonnie" Liu</a> and <a href="https://github.com/YuQuanang">Yu Quan Ang</a></div>
 </div>
 
 <script language="javascript" type="text/javascript" src="lib/jquery.js"></script>

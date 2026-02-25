@@ -1,1 +1,24 @@
 A fat tree visualizer in Javascript.
+
+Jupiter-style mode (implemented in the default UI) adds:
+
+- 5-stage Folded Clos model with radix `K` (default `16`)
+- Aggregation Blocks (ABs): each AB contains `K/2` Edge + `K/2` Aggregation switches
+- Split-Core wiring: each Aggregation switch uplinks to `splitSpan` Core switches
+- Bisection bandwidth estimate between left/right AB clusters:
+	- For each Core `S`, capacity is `min(links_from_left_cluster, links_from_right_cluster) * linkSpeed`
+	- Total bisection is the sum across all Core switches
+- Rail-aligned layout toggle to render AB Aggregation layer on `N` parallel rails (default `8`)
+
+Controls are available in the right-side panel:
+
+- `Radix (K)`
+- `AB Count`
+- `Core Switches`
+- `Split-Core Span`
+- `Link Speed (Gbps)`
+- `Rails`
+- `Rail Layout` (checkbox)
+
+Run Command:
+- python3 -m http.server 8000

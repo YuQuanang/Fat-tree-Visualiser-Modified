@@ -5,8 +5,14 @@ body, form input[type="text"] {
 }
 
 .pod { fill: #005; }
+.core { fill: #530; }
 .cable { stroke: #999; stroke-width: 1px; }
+.core-cable { stroke: #557; stroke-width: 1.2px; stroke-opacity: .8; }
 .host { fill: #500; }
+.ab { fill: #eef3ff; stroke: #99a8d8; stroke-width: 1px; }
+.ab-label { font-size: 10px; text-anchor: middle; fill: #334; }
+.rail { stroke: #ccd3ea; stroke-width: 1px; stroke-dasharray: 3 3; }
+.rail-label { font-size: 9px; text-anchor: middle; fill: #778; }
 
 svg.main { display: block; margin: auto; z-index: -1; }
 
@@ -14,7 +20,7 @@ div.control {
     position: absolute;
     right: .1in;
     left: .1in;
-    width: 2in;
+    width: 2.35in;
     padding-top: .1in;
     padding-bottom: .1in;
     padding-left: .15in;
@@ -36,14 +42,19 @@ form ul li {
 }
 
 form input[type="text"] {
-    width: .3in;
+    width: .42in;
     border: 1px solid #ccc;
     font-size: .13in;
 }
 
+form input[type="checkbox"] {
+    transform: scale(1.1);
+    margin-top: .06in;
+}
+
 form span.f {
-    margin-left: -1.1in;
-    width: 1in;
+    margin-left: -1.35in;
+    width: 1.25in;
     text-align: right;
     padding-right: .05in;
     float: left;
