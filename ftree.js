@@ -324,6 +324,8 @@ function updateStat() {
     d3.select("#nab").html(formatNum(model.abCount));
     d3.select("#nstage").html("5-stage Clos");
     d3.select("#nbisect").html(formatNum(bisection) + " Gbps");
+
+    updateMetricsTable(model, linkSpeed);
 }
 
 function calcBisection(model, linkSpeed) {
@@ -360,6 +362,23 @@ function calcBisection(model, linkSpeed) {
     }
 
     return bisectionLinks * linkSpeed;
+}
+
+function updateMetricsTable(model, linkSpeed) {
+    var k = Math.max(2, parseInt(conf['width']) || 16);
+    var abCount = Math.max(2, parseInt(conf['abCount']) || 8);
+    var coreCount = Math.max(2, parseInt(conf['coreCount']) || 8);
+    var edgePerAB = Math.floor(k / 2);
+    var hostsPerEdge = Math.floor(k / 2);
+
+    var jupiterHosts = abCount * edgePerAB * hostsPerEdge;
+    var jupiterPathRedundancy = coreCount;
+    var jupiterBisection = calcBisection(model, linkSpeed);
+
+    d3.select("#jupiter-hosts").text(formatNum(jupiterHosts));
+    d3.select("#jupiter-paths").text(formatNum(jupiterPathRedundancy) + " Paths");
+    d3.select("#jupiter-speed").text(formatNum(linkSpeed) + " Gbps");
+    d3.select("#jupiter-bisect").text(formatNum(jupiterBisection) + " Gbps");
 }
 
 function formatNum(x) {

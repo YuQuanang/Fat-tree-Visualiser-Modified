@@ -1,24 +1,39 @@
-A fat tree visualizer in Javascript.
+# Fat-Tree & Google Jupiter Network Simulator
 
-Jupiter-style mode (implemented in the default UI) adds:
+Two tools for analysing data centre network topologies:
 
-- 5-stage Folded Clos model with radix `K` (default `16`)
-- Aggregation Blocks (ABs): each AB contains `K/2` Edge + `K/2` Aggregation switches
-- Split-Core wiring: each Aggregation switch uplinks to `splitSpan` Core switches
-- Bisection bandwidth estimate between left/right AB clusters:
-	- For each Core `S`, capacity is `min(links_from_left_cluster, links_from_right_cluster) * linkSpeed`
-	- Total bisection is the sum across all Core switches
-- Rail-aligned layout toggle to render AB Aggregation layer on `N` parallel rails (default `8`)
+1. **Python Script (`Assignment1.py`)** — Fat-Tree calculations for Questions 5a–5c
+2. **JavaScript Visualiser** — Interactive scaled-down Google Jupiter (5-stage Clos) simulator
 
-Controls are available in the right-side panel:
+---
 
-- `Radix (K)`
-- `AB Count`
-- `Core Switches`
-- `Split-Core Span`
-- `Link Speed (Gbps)`
-- `Rails`
-- `Rail Layout` (checkbox)
+## How to Run
 
-Run Command:
-- python3 -m http.server 8000
+```bash
+# Fat-Tree calculations (Q5a–5c)
+python3 Assignment1.py
+
+# Jupiter visualiser — open http://localhost:8000
+python3 -m http.server 8000
+```
+
+---
+
+## Jupiter Visualiser
+
+Interactive controls for Radix (K), AB Count, Core Switches, Split-Core Span, Link Speed, and Rail Layout.
+
+### Metrics Calculations
+
+| Metric | Formula |
+|---|---|
+| Total Hosts | `abCount × (K/2) × (K/2)` |
+| Path Redundancy | `coreCount` paths |
+| Bisection BW | `⌊abCount/2⌋ × (K/2) × splitSpan × linkSpeed` Gbps |
+
+---
+
+## Authors
+
+**He "Lonnie" Liu** and **Yu Quan Ang**
+
